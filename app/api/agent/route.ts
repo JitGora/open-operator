@@ -4,7 +4,12 @@ import { CoreMessage, generateObject, UserContent } from "ai";
 import { z } from "zod";
 import { ObserveResult, Stagehand } from "@browserbasehq/stagehand";
 
-const LLMClient = openai("gpt-4o");
+// const LLMClient = openai("gpt-4o");
+const LLMClient = openai({
+  model: "google/gemini-2.0-flash-exp:free",
+  baseUrl: "https://openrouter.ai/api/v1"  // Direct override
+});
+
 
 type Step = {
   text: string;
